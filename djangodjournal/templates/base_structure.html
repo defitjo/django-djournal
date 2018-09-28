@@ -10,6 +10,14 @@
   <body>
     <div class="wrapper">
       <h1><a href="{% url 'entries:list' %}">Journal Entries</a></h1>
+      <nav>
+        <li>
+          <form class="logout" action="{% url 'accounts:logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+          </form>
+        </li>
+      </nav>
       {% block content %}
       {% endblock %}
     </div>
