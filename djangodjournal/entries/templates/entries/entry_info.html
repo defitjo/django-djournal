@@ -1,11 +1,12 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
- <div class="entry_info">
-   <div class="entry">
-     <h2>{{ entry.title }}</h2>
-     <p>{{ entry.body }}</p>
-     <p>{{ entry.date }}</p>
-   </div>
- </div>
+  <div class="entry_info">
+    <div class="entry">
+      <img src="{{ entry.thumbnail.url }}" />
+      <h2>{{ entry.title }}</h2>
+      <p>{{ entry.body }}</p>
+      <p>{{ entry.date }}</p>
+    </div>
+  </div>
 {% endblock %}
