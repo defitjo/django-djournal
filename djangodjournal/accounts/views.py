@@ -19,7 +19,10 @@ def login_path(request):
     if form.is_valid():
       user = form.get_user()
       login(request, user)
-      return redirect('entries:list')
+      if 'next' in request.POST:
+        return redirect(request.POST.get('next'))
+      else:
+        return redirect('entries:list')
   else:
     form = AuthenticationForm()
   return render(request, 'accounts/login.html', {'form': form})

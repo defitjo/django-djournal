@@ -4,6 +4,7 @@ from . import views
 app_name = 'entries'
 
 urlpatterns = [
-    re_path(r'^$', views.entries_list, name="list"),
-    re_path('(?P<slug>[\w-]+)/$', views.entry_details, name="details"),
+    path('', views.entries_list, name="list"),
+    path('/new/', views.entry_new, name="new"),
+    path('/<slug:slug>/', views.entry_details, name="details"),
 ]
