@@ -1,13 +1,14 @@
 {% extends 'base_structure.html' %}
 
 {% block content %}
-  <h1>Testing entries</h1>
+  <h1>Journal Entries</h1>
   <div class="entries">
     {% for entry in entries %}
       <div class="entry">
         <h2><a href="{% url 'entries:details' slug=entry.slug %}">{{ entry.title }}</a></h2>
         <p>{{ entry.short_body }}</p>
         <p>{{ entry.date }}</p>
+        <p id="author">entry by {{ entry.author.username }}</p>
       </div>
     {% endfor %}
   </div>

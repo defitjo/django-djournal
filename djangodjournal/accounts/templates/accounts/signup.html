@@ -1,7 +1,7 @@
 {% extends 'base_structure.html' %}
 
 {% block content %}
-  <h1>Signup to joing Django Djournal</h1>
+  <h1>Signup to join Django Djournal</h1>
   <form class="signup-form" action="/accounts/signup/" method="post">
     {% csrf_token %}
     {{ form }}

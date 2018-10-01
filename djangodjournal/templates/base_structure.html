@@ -9,14 +9,22 @@
   </head>
   <body>
     <div class="wrapper">
-      <h1><a href="{% url 'entries:list' %}">Journal Entries</a></h1>
+      <h1><a href="{% url 'home' %}">Django Djournal</a></h1>
       <nav>
-        <li>
-          <form class="logout" action="{% url 'accounts:logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-          </form>
-        </li>
+        <ul>
+          {% if user.is_authenticated %}
+            <li>
+              <form class="logout" action="{% url 'accounts:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+              </form>
+            </li>
+            <li><a class="entry_new" href="{% url 'entries:new' %}">Add New Entry</a></li>
+          {% else %}
+            <li><a href="{% url 'accounts:login' %}">Login</a></li>
+            <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+          {% endif %}
+        </ul>
       </nav>
       {% block content %}
       {% endblock %}

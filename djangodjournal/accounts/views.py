@@ -30,4 +30,4 @@ def login_path(request):
 def logout_path(request):
   if request.method == 'POST':
     logout(request)
-    return redirect('entries:list')
+    return redirect('home')
