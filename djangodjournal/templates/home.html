@@ -1,6 +1,92 @@
 {% extends 'base_structure.html' %}
 
 {% block content %}
-  <h1>Welcome to Django Djournal</h1>
-  <p>Login to create a journal entry</p>
+  <header></header>
+  <section class="section container" id="works">
+    <div class="row">
+      <div class="col s12 l4">
+        <h2 class="purple-text text-darken-4" id="how">How It Works...</h2>
+        <p>Quis ipsum suspendisse ultrices gravida dictum. Lectus sit amet est placerat. Cursus mattis molestie a iaculis at erat pellentesque adipiscing commodo.</p>
+        <p>Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Sit amet risus nullam eget felis eget.</p>
+      </div>
+      <div class="col s12 l6 offset-l2">
+        <ul class="tabs">
+          <li class="tab col s6">
+            <a href="#entry" class="active purple-text text-darken-4">Post Your Entry</a>
+          </li>
+          <li class="tab col s6">
+            <a href="#share" class="active purple-text text-darken-4">Share</a>
+          </li>
+        </ul>
+        <div class="col s12" id="entry">
+          <p class="flow-text purple-text text-darken-4">Post Your Entry</p>
+          <p>Sit amet massa vitae tortor condimentum lacinia quis vel. Arcu risus quis varius quam quisque id diam vel quam.</p>
+          <p>Nibh sit amet commodo nulla facilisi nullam vehicula.</p>
+        </div>
+        <div class="col s12" id="share">
+          <p class="flow-text purple-text text-darken-4">Share</p>
+          <p>Facilisis magna etiam tempor orci eu lobortis. Odio euismod lacinia at quis risus. Fames ac turpis egestas maecenas pharetra convallis.</p>
+          <p>Massa sed elementum tempus egestas. In massa tempor nec feugiat nisl pretium fusce.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="parallax-container">
+    <div class="parallax">
+      <img src="/static/img/book1.jpg" class="responsive-img">
+    </div>
+  </div>
+
+  <section class="container section">
+    <div class="row">
+      <div class="col s12 l4">
+        <img src="/static/img/thoughts.jpg" alt="" class="responsive-img materialboxed">
+      </div>
+      <div class="col s12 l6 offset-l1">
+        <h2 class="purple-text text-darken-4">Your Thoughts</h2>
+        <p>Feugiat pretium nibh ipsum consequat nisl. Est pellentesque elit ullamcorper dignissim cras tincidunt. Nisl vel pretium lectus quam id leo in vitae.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 l4 offset-l1 push-l7">
+        <img src="/static/img/adventures.jpg" alt="" class="responsive-img materialboxed">
+      </div>
+      <div class="col s12 l6 offset-l1 pull-l5 right-align">
+        <h2 class="purple-text text-darken-4">Your Adventures</h2>
+        <p>Penatibus et magnis dis parturient. Est ultricies integer quis auctor elit. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="parallax-container">
+    <div class="parallax">
+      <img src="/static/img/ideas.jpg" class="responsive-img">
+    </div>
+  </div>
+
+  <section class="section container">
+    <div class="row">
+      <div class="col s12 l5">
+        <h2 class="purple-text text-darken-4">Contact Us</h2>
+      </div>
+      <div class="col s12 l5 offset-l2">
+        <form>
+          <div class="input-field">
+            <i class="material-icons prefix">email</i>
+            <input type="email" id="email">
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">message</i>
+            <textarea id="message" class="materialize-textarea" cols="20" rows="20"></textarea>
+            <label for="message">Message</label>
+          </div>
+          <div class="input-field center">
+            <button class="btn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 {% endblock %}

@@ -14,4 +14,4 @@ class Entry(models.Model):
     return self.title
 
   def short_body(self):
-    return self.body[:50] + "..."
+    return self.body[:100] + "..."

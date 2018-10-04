@@ -1,15 +1,26 @@
 {% extends 'base_structure.html' %}
 
 {% block content %}
-  <h1>Journal Entries</h1>
-  <div class="entries">
+<div class="container">
+  <h1 class="center-align">Journal Entries</h1>
+  <div class="row">
     {% for entry in entries %}
-      <div class="entry">
-        <h2><a href="{% url 'entries:details' slug=entry.slug %}">{{ entry.title }}</a></h2>
-        <p>{{ entry.short_body }}</p>
-        <p>{{ entry.date }}</p>
-        <p id="author">entry by {{ entry.author.username }}</p>
+      <div class="col s12 l6">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{ entry.thumbnail.url }}">
+          </div>
+          <div class="card-content">
+            <a class="card-title" href="{% url 'entries:details' slug=entry.slug %}">{{ entry.title }}</a>
+            <p>{{ entry.short_body }}</p>
+            <p>{{ entry.date }}</p>
+          </div>
+          <div class="card-action orange-text">
+            <p class="right-align">entry by {{ entry.author.username }}</p>
+          </div> 
+        </div> 
       </div>
     {% endfor %}
   </div>
+</div>
 {% endblock %}

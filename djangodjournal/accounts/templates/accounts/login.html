@@ -1,13 +1,20 @@
 {% extends 'base_structure.html' %}
 
 {% block content %}
-  <h1>Login</h1>
-  <form class="login-form" action="{% url 'accounts:login' %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    {% if request.GET.next %}
-      <input type="hidden" name="next" value="{{ request.GET.next }}">
-    {% endif %}
-    <input type="submit" value="Login">
-  </form>
+  <div class="container">
+
+    <div class="row">
+      <div class="col s12">
+        <h1>Login</h1>
+        <form class="col s12 login-form" action="{% url 'accounts:login' %}" method="post">
+          {% csrf_token %}
+          {{ form }}
+          {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
+          {% endif %}
+          <input class="btn" id="login-sub" type="submit" value="Login">
+        </form>
+      </div>
+    </div>
+  </div>
 {% endblock %}

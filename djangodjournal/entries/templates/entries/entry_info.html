@@ -1,12 +1,15 @@
 {% extends 'base_structure.html' %}
 
 {% block content %}
-  <div class="entry_info">
-    <div class="entry">
-      <img src="{{ entry.thumbnail.url }}" />
-      <h2>{{ entry.title }}</h2>
-      <p>{{ entry.body }}</p>
-      <p>{{ entry.date }}</p>
+  <div class="container">
+    <div class="row" id="entry-info">
+      <div class="col s12">
+        <img class="responsive-img" src="{{ entry.thumbnail.url }}" />
+        <h2>{{ entry.title }}</h2>
+        <p>{{ entry.body }}</p>
+        <p>{{ entry.date }}</p>
+        <a class="btn-small purple darken-1 waves-effect waves-light" href="{% url 'entries:list' %}">back</a>
+      </div>
     </div>
   </div>
 {% endblock %}

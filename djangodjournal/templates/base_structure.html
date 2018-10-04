@@ -4,19 +4,54 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Django Djournal</title>
   </head>
   <body>
-    <div class="wrapper">
-      <h1><a href="{% url 'home' %}">Django Djournal</a></h1>
-      <nav>
-        <ul>
+    <nav class="nav-wrapper purple lighten-5">
+      <div class="container">
+        <a href="{% url 'home' %}" class="brand-logo black-text">Django Djournal</a>
+        <a class="sidenav-trigger" data-target="mobile-menu">
+          <i class="material-icons black-text">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down">
           {% if user.is_authenticated %}
             <li>
               <form class="logout" action="{% url 'accounts:logout' %}" method="post">
                 {% csrf_token %}
-                <button type="submit">Logout</button>
+                <button class="btn purple darken-1 waves-effect waves-light" type="submit">Logout</button>
+              </form>
+            </li>
+            <li><a class="black-text" href="{% url 'entries:new' %}">Add New Entry</a></li>
+          {% else %}
+            <li><a class="black-text" href="{% url 'accounts:login' %}">Login</a></li>
+            <li><a class="black-text" href="{% url 'accounts:signup' %}">Sign Up</a></li>
+          {% endif %}
+          <li><a class="black-text" href="#about">About</a></li>
+          <li><a href="#" class="tooltipped btn-floating btn-small purple lighten-4" data-position="bottom" data-tooltip="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a></li>
+          <li><a href="#" class="tooltipped btn-floating btn-small purple lighten-4" data-position="bottom" data-tooltip="Facebook">
+            <i class="fab fa-facebook"></i>
+          </a></li>
+          <li><a href="#" class="tooltipped btn-floating btn-small purple lighten-4" data-position="bottom" data-tooltip="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a></li>
+        </ul>
+        <ul class="sidenav grey lighten-2" id="mobile-menu">
+          {% if user.is_authenticated %}
+            <li>
+              <form class="logout" action="{% url 'accounts:logout' %}" method="post">
+                {% csrf_token %}
+                <button class="btn purple darken-1 waves-effect waves-light" type="submit">Logout</button>
               </form>
             </li>
             <li><a class="entry_new" href="{% url 'entries:new' %}">Add New Entry</a></li>
@@ -24,10 +59,42 @@
             <li><a href="{% url 'accounts:login' %}">Login</a></li>
             <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
           {% endif %}
+          <li><a class="black-text" href="#about">About</a></li>
         </ul>
-      </nav>
+      </div>
+    </nav>
+    <section class="wrapper">
       {% block content %}
       {% endblock %}
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer grey darken-3 scrollspy" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5>About Us</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+            <a class="grey-text text-lighten-3" href="https://github.com/defitjo">Github</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright grey darken-4">
+        <div class="container center-align">&copy; Devon</div>
+      </div>
+    </footer>
+        
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+      $('.tooltipped').tooltip();
+      $('.scrollspy').scrollSpy();
+      $('.tabs').tabs();
+      $('.parallax').parallax();
+      $('.materialboxed').materialbox();
+    });
+  </script>
   </body>
 </html>
