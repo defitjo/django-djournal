@@ -40,8 +40,8 @@ span.helptext {
 }
 
 .new-form input {
-    display: block;
-    margin: 20px 0 0px 0;
+  display: block;
+  margin: 20px 0 0px 0;
 }
 
 @media screen and (max-width: 670px) {
